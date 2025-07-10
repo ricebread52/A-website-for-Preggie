@@ -35,11 +35,12 @@ const InteractiveSurprise = () => {
         <div 
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3ClinearGradient id="grad1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:hsl(340 60%25 95%25);stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:hsl(280 50%25 90%25);stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="1200" height="800" fill="url(%23grad1)" /%3E%3Cellipse cx="300" cy="200" rx="150" ry="100" fill="hsl(340 70%25 88%25)" opacity="0.6" /%3E%3Cellipse cx="900" cy="600" rx="200" ry="120" fill="hsl(320 65%25 85%25)" opacity="0.5" /%3E%3Cellipse cx="600" cy="400" rx="100" ry="80" fill="hsl(350 75%25 90%25)" opacity="0.4" /%3E%3C/svg%3E")',
-            filter: 'blur(20px)',
+            backgroundImage: 'url("/lovable-uploads/deed8793-1e43-496c-80d9-6d69daf9c5d4.png")',
+            filter: 'blur(18px)',
             transform: 'scale(1.1)'
           }}
         />
+        <div className="fixed inset-0 bg-background/20" />
         
         {/* Confetti Effect */}
         {showConfetti && (
@@ -82,7 +83,17 @@ const InteractiveSurprise = () => {
 
   return (
     <div className="min-h-screen py-8 px-4 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center flex items-center justify-center min-h-screen">
+      {/* Blurred Background Image */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/lovable-uploads/deed8793-1e43-496c-80d9-6d69daf9c5d4.png")',
+          filter: 'blur(12px)',
+          transform: 'scale(1.1)'
+        }}
+      />
+      <div className="fixed inset-0 bg-background/20" />
+      <div className="relative z-10 max-w-4xl mx-auto text-center flex items-center justify-center min-h-screen">
         <div className="glass-effect rounded-3xl p-8 md:p-16 animate-fade-in-up">
           <Heart className="w-16 h-16 md:w-24 md:h-24 text-primary mx-auto mb-8 animate-heart-float" fill="currentColor" />
           

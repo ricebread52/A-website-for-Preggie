@@ -52,8 +52,18 @@ const SpecialMessage = () => {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen py-8 px-4 relative overflow-hidden">
+      {/* Blurred Background Image */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/lovable-uploads/deed8793-1e43-496c-80d9-6d69daf9c5d4.png")',
+          filter: 'blur(15px)',
+          transform: 'scale(1.1)'
+        }}
+      />
+      <div className="fixed inset-0 bg-background/30" />
+      <div className="relative z-10 max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="font-dancing text-4xl md:text-6xl text-primary mb-4 animate-fade-in-up">
             A Message From My Heart 💕
