@@ -2,39 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Romantic Design System - Soft pastels and dreamy aesthetics
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Romantic Color Palette */
+    --background: 340 50% 98%;
+    --foreground: 340 15% 25%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 340 60% 97%;
+    --card-foreground: 340 15% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 340 60% 97%;
+    --popover-foreground: 340 15% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 340 75% 85%;
+    --primary-foreground: 340 15% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 280 60% 92%;
+    --secondary-foreground: 280 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 320 40% 95%;
+    --muted-foreground: 320 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 290 70% 90%;
+    --accent-foreground: 290 15% 25%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 340 30% 90%;
+    --input: 340 30% 92%;
+    --ring: 340 75% 85%;
+
+    /* Romantic Gradient Palette */
+    --gradient-romantic: linear-gradient(135deg, hsl(340 75% 90%), hsl(280 70% 92%));
+    --gradient-dreamy: linear-gradient(180deg, hsl(340 60% 97%), hsl(280 50% 95%));
+    --gradient-soft: linear-gradient(45deg, hsl(320 60% 95%), hsl(290 60% 96%));
+    --gradient-heart: linear-gradient(135deg, hsl(340 80% 88%), hsl(350 70% 85%));
+
+    /* Romantic Shadows */
+    --shadow-soft: 0 4px 20px hsl(340 50% 85% / 0.3);
+    --shadow-dreamy: 0 8px 32px hsl(280 40% 80% / 0.4);
+    --shadow-glow: 0 0 30px hsl(340 70% 85% / 0.5);
+    --shadow-heart: 0 4px 15px hsl(340 80% 80% / 0.4);
+
+    /* Animation Curves */
+    --transition-romantic: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-heart: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --radius: 0.5rem;
 
@@ -94,6 +112,54 @@ All colors MUST be HSL.
   }
 }
 
+/* Custom romantic animations and effects */
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/20 border border-white/30;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .heart-float {
+    animation: heartFloat 3s ease-in-out infinite;
+  }
+  
+  .text-typewriter {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typewriter 4s steps(40) 1s both, blinkCursor 1s step-end infinite;
+  }
+  
+  .love-glow {
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-heart);
+  }
+  
+  .love-glow:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-heart);
+  }
+  
+  .floating-hearts::before {
+    content: '💖';
+    position: absolute;
+    animation: floatingHearts 6s ease-in-out infinite;
+    opacity: 0;
+  }
+  
+  .gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+  
+  .gradient-dreamy {
+    background: var(--gradient-dreamy);
+  }
+  
+  .gradient-heart {
+    background: var(--gradient-heart);
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -101,5 +167,45 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-dreamy);
+    min-height: 100vh;
   }
+}
+
+@keyframes heartFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes typewriter {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes blinkCursor {
+  0%, 50% { border-color: hsl(var(--primary)); }
+  51%, 100% { border-color: transparent; }
+}
+
+@keyframes floatingHearts {
+  0% { transform: translateY(0) scale(0); opacity: 0; }
+  20% { transform: translateY(-20px) scale(1); opacity: 1; }
+  80% { transform: translateY(-60px) scale(1); opacity: 1; }
+  100% { transform: translateY(-80px) scale(0); opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes confetti {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
 }
