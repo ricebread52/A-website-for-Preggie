@@ -12,32 +12,31 @@ const Memories = () => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Beautiful romantic memories
   const memories = [
     {
       image: memory1,
-      caption: "Our first date 💕",
+      caption: "Our first pic together 💕",
       description: "The day everything began..."
     },
     {
       image: memory2,
-      caption: "Goa trip 🌊",
-      description: "Sun, sand, and endless smiles"
+      caption: "A random picture of us",
+      description: "Cute and endless smiles"
     },
     {
       image: memory3,
-      caption: "Cozy movie night 🍿",
-      description: "Perfect evening together"
+      caption: "Our memorable second date 💕",
+      description: "Cutie being too cute that day"
     },
     {
       image: memory4,
-      caption: "Birthday surprise 🎂",
+      caption: "A wedding of us?!",
       description: "Making wishes come true"
     },
     {
       image: memory5,
-      caption: "Adventure day 🎢",
-      description: "Thrills and laughter"
+      caption: "Preggie's cute memories",
+      description: "Cuteness and Hotness"
     }
   ];
 
@@ -56,32 +55,44 @@ const Memories = () => {
           <h1 className="font-dancing text-4xl md:text-6xl text-primary mb-4 animate-fade-in-up">
             Our Beautiful Memories ✨
           </h1>
-          <p className="font-quicksand text-lg text-muted-foreground animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <p
+            className="font-quicksand text-lg text-muted-foreground animate-fade-in-up"
+            style={{ animationDelay: "0.3s" }}
+          >
             Every moment with you is a treasure worth keeping forever
           </p>
         </div>
 
         {/* Memory Gallery */}
-        <div className="glass-effect rounded-3xl p-6 md:p-8 mb-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+        <div
+          className="glass-effect rounded-3xl p-6 md:p-8 mb-8 animate-fade-in-up"
+          style={{ animationDelay: "0.6s" }}
+        >
           <div className="relative overflow-hidden rounded-2xl">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            <div
+              className="flex transition-transform duration-500 ease-in-out will-change-transform"
+              style={{
+                WebkitTransform: `translate3d(-${currentIndex * 100}%, 0, 0)`,
+                transform: `translate3d(-${currentIndex * 100}%, 0, 0)`,
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden"
+              }}
             >
               {memories.map((memory, index) => (
                 <div key={index} className="w-full flex-shrink-0">
                   <div className="aspect-[4/3] md:aspect-[16/9] relative overflow-hidden rounded-xl">
-                    <img 
+                    <img
                       src={memory.image}
                       alt={memory.caption}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        // Fallback to gradient if image doesn't load
                         const target = e.currentTarget as HTMLImageElement;
-                        target.style.display = 'none';
+                        target.style.display = "none";
                         const fallback = target.nextElementSibling as HTMLElement;
                         if (fallback) {
-                          fallback.style.display = 'flex';
+                          fallback.style.display = "flex";
                         }
                       }}
                     />
@@ -90,8 +101,12 @@ const Memories = () => {
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <h3 className="font-dancing text-2xl md:text-3xl mb-2">{memory.caption}</h3>
-                      <p className="font-quicksand text-sm md:text-base opacity-90">{memory.description}</p>
+                      <h3 className="font-dancing text-2xl md:text-3xl mb-2">
+                        {memory.caption}
+                      </h3>
+                      <p className="font-quicksand text-sm md:text-base opacity-90">
+                        {memory.description}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -105,7 +120,7 @@ const Memories = () => {
             >
               <ArrowLeft className="w-5 h-5 text-white" />
             </Button>
-            
+
             <Button
               onClick={nextSlide}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 border-0 rounded-full p-3"
@@ -121,7 +136,9 @@ const Memories = () => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'bg-primary scale-125' : 'bg-primary/30'
+                  index === currentIndex
+                    ? "bg-primary scale-125"
+                    : "bg-primary/30"
                 }`}
               />
             ))}

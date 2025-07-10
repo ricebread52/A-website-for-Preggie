@@ -11,7 +11,7 @@ const SpecialMessage = () => {
 
   const loveMessage = `My dearest Preggie,
 
-  One year ago, you walked into my life and everything changed. You brought colors to my black and white world, melodies to my silence, and warmth to my heart.
+  A heartfelt letter from your boy Jeneil. One year ago, you walked into my life and everything changed. You brought colors to my black and white world, melodies to my silence, and warmth to my heart.
 
   Every sunrise feels like a new adventure with you, every sunset a peaceful end to another beautiful day together. Your laugh is my favorite sound, your smile my greatest treasure.
 
@@ -19,7 +19,7 @@ const SpecialMessage = () => {
 
   Thank you for being my partner, my best friend, my everything. Here's to countless more years of love, laughter, and making beautiful memories together.
 
-  You are my today, my tomorrow, and all my tomorrows after that.
+  You are my today, my tomorrow, and all my tomorrows after that. You are my dream, the only dream I dream of making it into a reality.
 
   Forever yours,
   Your Love 💖`;
